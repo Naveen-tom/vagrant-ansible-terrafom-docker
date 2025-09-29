@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-    docker = {
+    docker = { 
       source  = "kreuzwerker/docker"
       version = "~> 3.0.0"
     }
@@ -16,7 +16,7 @@ resource "docker_image" "nginx" {
 
 # Run container
 resource "docker_container" "nginx" {
-  image = docker_image.nginx.latest
+  image = docker_image.nginx.image_id
   name  = "nginx-server"
 
   ports {
